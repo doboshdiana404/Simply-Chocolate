@@ -69,12 +69,6 @@ address {
   background-color: #fafafa;
 }
 
-.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
 /* ---------------HEADER-------------- */
 
 .header {
@@ -144,6 +138,10 @@ address {
   padding-bottom: 32px;
 }
 
+.header-contact-link:hover .header-contact-icon, .header-contact-link:focus .header-contact-icon{
+  stroke: #fd9222;
+}
+
 .header-logo-icon {
   fill: #fff;
   stroke: #fd9222;
@@ -154,6 +152,7 @@ address {
 .header-contact-icon {
   stroke: #111;
   fill: transparent;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* header animation */
@@ -215,8 +214,9 @@ address {
   border-radius: 100px;
   width: 120px;
   height: 41px;
-
   margin-right: 14px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-scroll {
@@ -227,6 +227,19 @@ address {
   color: #fff;
   display: flex;
   align-items: center;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-scroll:hover, .hero-scroll:focus{
+  color: #fd9222;
+}
+
+.hero-scroll:hover .hero-scroll-btn, .hero-scroll:focus .hero-scroll-btn{
+  background-color: #fd9222;
+}
+
+.hero-scroll:hover .hero-scroll-btn .hero-scroll-icon, .hero-scroll:focus .hero-scroll-btn .hero-scroll-icon{
+ fill: #fff;
 }
 
 .hero-flex-btn {
@@ -243,10 +256,21 @@ address {
   align-items: center;
   justify-content: center;
   color: #fff;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
+
+.hero-made:hover, .hero-made:focus{
+  border: 1px solid #fd9222;
+  background-color: #fff;
+  color: #fd9222;
+  }
 
 .hero-scroll-icon {
   fill: #fd9222;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .hero-scroll-btn {
@@ -258,6 +282,8 @@ address {
   align-items: center;
   justify-content: center;
   margin-left: 12px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 /* ---------------BENEFITS----------- */
 
@@ -572,8 +598,11 @@ picture {
   display: block;
   color: black;
   background-color: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.rewiews-btn:hover, .rewiews-btn:focus{
+.rewiews-btn:hover,
+.rewiews-btn:focus {
   background-color: #fd9222;
   color: #fff;
 }
@@ -674,6 +703,9 @@ picture {
   height: 45px;
   background-color: transparent;
   margin-right: 8px;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: transparent;
+
 }
 .footer-email::placeholder {
   font-size: 14px;
@@ -693,6 +725,8 @@ picture {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* -------------- MODAL MOBILE MENU ------------*/
@@ -711,7 +745,7 @@ picture {
   justify-content: space-between;
   opacity: 0;
   pointer-events: none;
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .menu-close-btn {
@@ -731,7 +765,8 @@ picture {
 }
 .mob-soc-item {
 }
-.mob-soc-link {
+.mob-soc-link:hover .mob-soc-icon, .mob-soc-link:focus .mob-soc-icon {
+  stroke: #fd9222;
 }
 
 .header-modal-top {
@@ -742,6 +777,7 @@ picture {
 .mob-soc-icon {
   stroke: #fff;
   fill: transparent;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .mob-menu-list {
   margin: 0 auto;
@@ -769,27 +805,29 @@ picture {
 
 /* ----------MODAL-FORM-------------- */
 
- .backdrop{
+.backdrop {
   position: fixed;
   background: rgba(46, 47, 66, 0.4);
-width: 100%;
-height: 100%;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
+  padding: 0;
   opacity: 0;
-    pointer-events: none;
-    visibility: hidden;
-} 
-.modal-form-window{
+  visibility: hidden;
+  pointer-events: none;
+}
+.modal-form-window {
   position: absolute;
   background-color: #fafafa;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
+  width: 311px;
+  min-height: 619px;
   border-radius: 15px;
   padding: 32px 24px;
+  overflow: auto;
 }
 
 .modal-form-close {
@@ -802,9 +840,134 @@ height: 100%;
   stroke: #111;
 }
 
-.modal-form-title{
+.modal-form-title {
   font-weight: 600;
   text-align: left;
+  margin-bottom: 32px;
+}
+
+.modal-input {
+  display: block;
+  border: 1.5px solid rgba(17, 17, 17, 0.05);
+  border-radius: 8px;
+  padding-left: 43px;
+  padding-right: 18px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  width: 100%;
+  height: 45px;
+  background-color: transparent;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: rgba(64, 64, 64, 1);
+  outline: transparent;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-input:focus, .footer-email:focus {
+  border: 1.5px solid #fd9222;
+}
+
+.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal-field {
+  margin-bottom: 14px;
+}
+.modal-label {
+  font-size: 13px;
+  letter-spacing: -0.02em;
+  color: rgba(64, 64, 64, 0.3);
+}
+
+.modal-input-icon {
+  stroke: #404040;
+  fill: transparent;
+}
+
+.input-comment {
+  resize: none;
+  height: 91px;
+  padding: 14px 18px;
+}
+
+.input-comment::placeholder {
+  font-size: 13px;
+  letter-spacing: -0.02em;
+  color: rgba(64, 64, 64, 0.3);
+}
+
+.modal-field-wrap {
+  position: relative;
+  margin-top: 4px;
+}
+
+.modal-input-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.terms-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.fike-check {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 1px solid rgba(17, 17, 17, 0.14);
+  margin-right: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fike-check svg {
+  fill: transparent;
+}
+
+.modal-label-checkbox {
+  display: flex;
+  font-size: 16px;
+}
+
+.modal-check:checked + .modal-label-checkbox .fike-check {
+  background-color: #fd9222;
+  border: none;
+}
+.modal-check:checked + .modal-label-checkbox .fike-check .fike-icon {
+  fill: #fff;
+}
+
+.modal-form-btn {
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  border-radius: 100px;
+  padding: 12px 28px;
+  width: 93px;
+  height: 41px;
+  background-color: #fd9222;
+  margin-top: 32px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form-btn:hover,
+.modal-form-btn:focus,
+.hero-btn:hover, .hero-btn:focus, .footer-submit-btn:hover, .footer-submit-btn:focus {
+  background-color: #fcf1e0;
+  color: #fd9222;
 }
 
 /* -----------------MEDIA-------------- */
@@ -1036,6 +1199,40 @@ height: 100%;
     width: 128px;
     padding: 14px 28px;
   }
+
+  .modal-form-window {
+    width: 517px;
+    padding: 40px;
+  }
+
+  .modal-form-btn {
+    width: 117px;
+    height: 45px;
+  }
+
+  .modal-input-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .modal-input {
+    padding-left: 62px;
+    padding-right: 24px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    width: 436px;
+    height: 68px;
+  }
+
+.input-comment{
+  height: 137px;
+  padding-left: 24px;
+}
+
+.input-comment::placeholder {
+  font-size: 18px;
+}
+
 }
 
 @media screen and (min-width: 1200px) {
@@ -1181,4 +1378,9 @@ height: 100%;
     width: 137px;
     height: 52px;
   }
+
+.modal-form-window{
+  /* max-width: 517px; */
+}
+
 }
