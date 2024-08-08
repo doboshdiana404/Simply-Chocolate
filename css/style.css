@@ -512,6 +512,7 @@ picture {
 
 .rewiews-list {
   display: flex;
+  gap: 16px;
   margin-top: 74px;
   margin-bottom: 32px;
   transition: transform 0.5s ease;
@@ -956,7 +957,6 @@ height: 100%;
 
   .rewiews-list {
     margin-top: 91px;
-    gap: 16px;
     margin-bottom: 94px;
   }
 
