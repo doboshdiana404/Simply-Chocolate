@@ -58,14 +58,16 @@
                 <use href="./images/icons.svg#icon-mobmenu"></use>
             </svg></button>
             <div class="header-menu-modal">
-                <button class="menu-close-btn" type="button"><svg class="menu-close-icon" width="28" height="28">
-                    <use href="./images/icons.svg#icon-close"></use>
-                </svg></button>
-                <ul class="mob-menu-list">
-                    <li class="mob-menu-item"><a class="mob-menu-link" href="./index.html">Home</a></li>
-                    <li class="mob-menu-item"><a class="mob-menu-link" href="">How it’s made?</a></li>
-                    <li class="mob-menu-item"><a class="mob-menu-link" href="">Chocolate is loved</a></li>
-                </ul>
+                <div class="header-modal-top" >
+                  <button class="menu-close-btn" type="button"><svg class="menu-close-icon" width="28" height="28">
+                      <use href="./images/icons.svg#icon-close"></use>
+                  </svg></button>
+                  <ul class="mob-menu-list">
+                      <li class="mob-menu-item"><a class="mob-menu-link" href="./index.html">Home</a></li>
+                      <li class="mob-menu-item"><a class="mob-menu-link" href="">How it’s made?</a></li>
+                      <li class="mob-menu-item"><a class="mob-menu-link" href="">Chocolate is loved</a></li>
+                  </ul>
+                </div>
                 <ul class="mob-soc-list">
                     <li class="mob-soc-item"><a class="mob-soc-link" href=""><svg class="mob-soc-icon" width="22" height="22">
                         <use href="./images/icons.svg#icon-instagram"></use>
@@ -325,7 +327,7 @@
       <section class="rewiews">
             <div class="container rewiews-container">
                 <h2 class="section-title"><span class="title-orange">chocolate</span> is loved</h2>
-                <div class="rewiews-list-container">
+                <div class="rewiews-list-container" id="scrollContainer">
                     <ul class="rewiews-list">
                         <li class="rewiews-item">
                             <img class="rewiews-image" src="./images/viktoria.jpg" alt="Victoria Dobrzhanska" width="80"
@@ -353,10 +355,7 @@
                             </div>
                         </li>
                     </ul>
-                    <div class="buttons-slider">
-                        <button class="button-slider" id="prev"><</button>
-                        <button class="button-slider" id="next">></button>
-                      </div>
+                    
                 </div>
                 <button class="rewiews-btn" type="button">Leave a review</button>
             </div>
@@ -391,34 +390,19 @@
             </div>
         </div>
     </footer>
-    <script>
-        const slider = document.querySelector('.rewiews-list');
-        const slides = document.querySelectorAll('.rewiews-item');
-        const nextButton = document.getElementById('next');
-        const prevButton = document.getElementById('prev');
-        let currentIndex = 0;
-      
-        function updateSliderPosition() {
-          slider.style.transform = `translateX(-${currentIndex * 335}px)`;
-        }
-      
-        nextButton.addEventListener('click', () => {
-          if (currentIndex < slides.length - 1) {
-            currentIndex++;
-          } else {
-            currentIndex = 0; // Повернення на перший слайд
-          }
-          updateSliderPosition();
-        });
-      
-        prevButton.addEventListener('click', () => {
-          if (currentIndex > 0) {
-            currentIndex--;
-          } else {
-            currentIndex = slides.length - 1; // Переход до останнього слайду
-          }
-          updateSliderPosition();
-        });
-      </script>
+    <div class="backdrop">
+      <div class="modal-form-window">
+<button class="modal-form-close" type="button"><svg class="form-close-icon" width="24" height="24">
+  <use href="./images/icons.svg#icon-close"></use>
+</svg></button>
+<p class=" section-title modal-form-title">leave a review <br>
+  about <span class="title-orange">our chocolate</span></p>
+  <form class="modal-form">
+    <label for="user-name">Name</label>
+    <input type="text" id="user-name" name="user-name" class="user-name">
+  </form>
+      </div>
+    </div>
+      <script src="main.js"></script>
   </body>
 </html>

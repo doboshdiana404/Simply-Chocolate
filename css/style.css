@@ -12,7 +12,8 @@ ul {
   margin-bottom: 0;
 }
 .container {
-  width: 375px;
+  min-width: 320px;
+  max-width: 375px;
   padding-left: 20px;
   padding-right: 20px;
   margin: 0 auto;
@@ -66,6 +67,12 @@ address {
 .made,
 .rewiews {
   background-color: #fafafa;
+}
+
+.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 /* ---------------HEADER-------------- */
@@ -694,6 +701,9 @@ picture {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+    visibility: hidden;
 }
 
 .menu-close-btn {
@@ -716,15 +726,19 @@ picture {
 .mob-soc-link {
 }
 
-.mob-soc-icon{
- stroke  : #fff;
+.header-modal-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.mob-soc-icon {
+  stroke: #fff;
   fill: transparent;
 }
 .mob-menu-list {
   margin: 0 auto;
-  
 }
-.mob-menu-item{
+.mob-menu-item {
 }
 .mob-menu-item:not(:last-child) {
   margin-bottom: 24px;
@@ -735,13 +749,60 @@ picture {
   line-height: 1.14;
   letter-spacing: -0.02em;
   color: #fff;
+  padding: 12px;
+  transition: color 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.mob-menu-link:hover,
+.mob-menu-link:focus {
+  color: #fd9222;
+}
+
+/* ----------MODAL-FORM-------------- */
+
+ .backdrop{
+  position: fixed;
+  background: rgba(46, 47, 66, 0.4);
+width: 100%;
+height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+} 
+.modal-form-window{
+  position: absolute;
+  background-color: #fafafa;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  padding: 32px 24px;
+}
+
+.modal-form-close {
+  background-color: transparent;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.form-close-icon {
+  stroke: #111;
+}
+
+.modal-form-title{
+  font-weight: 600;
+  text-align: left;
+}
 
 /* -----------------MEDIA-------------- */
 @media screen and (min-width: 768px) {
   .container {
-    width: 768px;
+    max-width: 768px;
     padding-left: 32px;
     padding-right: 32px;
   }
@@ -972,7 +1033,7 @@ picture {
 
 @media screen and (min-width: 1200px) {
   .container {
-    width: 1166px;
+    max-width: 1166px;
     padding-left: 15px;
     padding-right: 15px;
   }
