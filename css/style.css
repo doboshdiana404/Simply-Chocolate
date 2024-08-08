@@ -570,6 +570,7 @@ picture {
   height: 41px;
   margin: 0 auto;
   display: block;
+  color: black;
 }
 .buttons-slider {
   position: absolute;
