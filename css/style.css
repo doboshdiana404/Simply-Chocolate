@@ -571,7 +571,13 @@ picture {
   margin: 0 auto;
   display: block;
   color: black;
+  background-color: transparent;
 }
+.rewiews-btn:hover, .rewiews-btn:focus{
+  background-color: #fd9222;
+  color: #fff;
+}
+
 .buttons-slider {
   position: absolute;
   top: 50%;
